@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: sftpgo-service
+  namespace: sftpgo
+spec:
+  selector:
+    app: sftpgo
+
+  ports:
+    - name: sftp
+      protocol: TCP
+      port: 2022
+      targetPort: 2022
+
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 80
+
+  type: ClusterIP
